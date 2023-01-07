@@ -7,17 +7,17 @@ function App() {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
 
-  const callback = useCallback(() => (Sum(4 * count + count2), console.log("asdasd")), [count2])
-  const usememo = useMemo(() => (Sum(4 * count + count2), console.log("asdasd")), [count2])
+  const usememo = useMemo(() => (Sum(4 * count + count2), console.log("useMemoSum")), [count2])
+  const callback = useCallback(() => (Sum(4 * count + count2), console.log("CALLsum")), [count])
 
-  useLayoutEffect(() => {
-    console.log("CALLBack", callback());
-  }, [callback])
 
   useLayoutEffect(() => {
     console.log("useMemo", usememo);
   }, [usememo])
 
+  useLayoutEffect(() => {
+    console.log("CALLBack", callback());
+  }, [callback])
 
   return (
     <article className="App" value={count}>
