@@ -7,9 +7,38 @@ function App() {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
 
-  const usememo = useMemo(() => (Sum(4 * count + count2), console.log("useMemoSum")), [count2])
-  const callback = useCallback(() => (Sum(4 * count + count2), console.log("CALLsum")), [count])
+  // const [arr, setArray] = useState([{ id: 1, title: "AZA" }, { id: 2, title: "USUP" }])
 
+  // useLayoutEffect(() => {
+  //   setArray(arr)
+  //   console.log("useEffectLayout", arr);
+  // }, [arr])
+
+  // useMemo(() => {
+  //   setArray(arr)
+  //   console.log("useMemo", arr);
+  // }, [arr])
+
+  // useLayoutEffect,useEffect и useMemo оба работают одинаково - перерендеринг происходит каждый раз при изменении [массива]
+
+
+
+
+  // const callBack = useCallback(() => {
+  //   setArray(arr);
+  //   console.log("useCallBack", arr);
+  // }, [arr])
+  // console.log(callBack(arr));
+
+  // useCallback работает не так как useLayoutEffect,useEffect и useMemo
+  // useCallback не предназначен для перепендеринга [массивов]
+  // useCallback делает это бесконечное количество раз и выдается лимит об ошибке
+
+
+
+
+  const usememo = useMemo(() => (Sum(4 * count + count2), console.log("useMemoM")), [count2])
+  const callback = useCallback(() => (Sum(4 * count + count2), console.log("CALLBackC")), [count])
 
   useLayoutEffect(() => {
     console.log("useMemo", usememo);
