@@ -2,6 +2,7 @@
 import { useLayoutEffect, useState, useMemo, useEffect, useCallback } from 'react'
 import './App.css'
 import { Sum } from './components/Sum';
+import { ReactMemo } from './components/ReactMemo';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -37,16 +38,16 @@ function App() {
 
 
 
-  const usememo = useMemo(() => (Sum(4 * count + count2), console.log("useMemoM")), [count2])
-  const callback = useCallback(() => (Sum(4 * count + count2), console.log("CALLBackC")), [count])
+  // const usememo = useMemo(() => (Sum(4 * count + count2), console.log("useMemoM")), [count2])
+  // const callback = useCallback(() => (Sum(4 * count + count2), console.log("CALLBackC")), [count])
 
-  useLayoutEffect(() => {
-    console.log("useMemo", usememo);
-  }, [usememo])
+  // useLayoutEffect(() => {
+  //   console.log("useMemo", usememo);
+  // }, [usememo])
 
-  useLayoutEffect(() => {
-    console.log("CALLBack", callback());
-  }, [callback])
+  // useLayoutEffect(() => {
+  //   console.log("CALLBack", callback());
+  // }, [callback])
 
   return (
     <article className="App" value={count}>
@@ -70,6 +71,7 @@ function App() {
       }}>
         +100 (setCount2)
       </button>
+      <ReactMemo count={count} />
     </article >
   )
 }
